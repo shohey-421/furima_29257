@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column          | Type       | Options                        | 
-| --------------- | ---------- | ------------------------------ | 
-| name            | string     | null: false                    | 
-| description     | text       | null: false                    | 
-| category        | string     | null: false                    | 
-| condition       | string     | null: false                    | 
-| shipping_burden | string     | null: false                    | 
-| ship_from       | string     | null: false                    | 
-| shipping_date   | integer    | null: false                    | 
-| price           | integer    | null: false                    | 
-| user_id         | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        | 
+| ------------------ | ---------- | ------------------------------ | 
+| name               | string     | null: false                    | 
+| description        | text       | null: false                    | 
+| category_id        | integer    | null: false                    | 
+| condition_id       | integer    | null: false                    | 
+| shipping_burden_id | integer    | null: false                    | 
+| ship_from_id       | integer    | null: false                    | 
+| shipping_date_id   | integer    | null: false                    | 
+| price              | integer    | null: false                    | 
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -41,8 +41,8 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -55,12 +55,12 @@
 | Column       | Type       | Options                        | 
 | ------------ | ---------- | ------------------------------ | 
 | postcode     | string     | null: false                    | 
-| region       | string     | null: false                    | 
+| region_id    | integer    | null: false                    | 
 | city         | string     | null: false                    | 
 | block        | string     | null: false                    | 
-| building     | string     | null: false                    | 
+| building     | string     |                                | 
 | phone_number | integer    | null: false                    | 
-| order_id     | references | null: false, foreign_key: true |
+| order        | references | null: false, foreign_key: true |
 
 ### Association
 
