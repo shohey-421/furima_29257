@@ -19,11 +19,11 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :category_id, numericality: { other_than: 1, message: "Select"}
-    validates :condition_id	, numericality: { other_than: 1, message: "Select"}
-    validates :shipping_burden_id, numericality: { other_than: 1, message: "Select"}
-    validates :ship_from_id, numericality: { other_than: 1, message: "Select" }
-    validates :shipping_date_id, numericality: { other_than: 1, message: "Select"}
+    validates :category_id, numericality: { other_than: 0, message: "Select"}
+    validates :condition_id	, numericality: { other_than: 0, message: "Select"}
+    validates :shipping_burden_id, numericality: { other_than: 0, message: "Select"}
+    validates :ship_from_id, numericality: { other_than: 0, message: "Select" }
+    validates :shipping_date_id, numericality: { other_than: 0, message: "Select"}
     validates :price, format: { with: /\A[0-9]+\z/, message: "Half-width number"}
   end
 
