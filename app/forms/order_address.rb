@@ -10,7 +10,7 @@ class OrderAddress
     validates :region_id,     numericality: { other_than: 0, message: "Select"}
     validates :city
     validates :block
-    validates :phone_number
+    validates :phone_number,  length: { maximum: 11 }    
   end
 
   def save

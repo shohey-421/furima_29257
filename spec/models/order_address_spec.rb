@@ -15,7 +15,7 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Token can't be blank")
     end
-    
+
     it "postcodeが空では登録できないこと" do
       @order_address.postcode = nil
       @order_address.valid?
@@ -49,6 +49,11 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.phone_number = nil
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
+    end
+    it "phone_numberが12桁以上では登録できないこと" do
+      @order_address.phone_number = "000000000000"
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
     end
   end
 end
