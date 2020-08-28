@@ -12,22 +12,19 @@ class Item < ApplicationRecord
   has_one_attached :image
   validate :image_presence
   def image_presence
-    unless image.attached? then
-      errors.add(:image, "can't be blank")
-    end
+    errors.add(:image, "can't be blank") unless image.attached?
   end
-  
+
   with_options presence: true do
     validates :name
     validates :description
-    validates :category_id, numericality: { other_than: 0, message: "Select"}
-    validates :condition_id	, numericality: { other_than: 0, message: "Select"}
-    validates :shipping_burden_id, numericality: { other_than: 0, message: "Select"}
-    validates :ship_from_id, numericality: { other_than: 0, message: "Select" }
-    validates :shipping_date_id, numericality: { other_than: 0, message: "Select"}
-    validates :price, numericality: { only_integer: true, message: "Half-width number"}
+    validates :category_id, numericality: { other_than: 0, message: 'Select' }
+    validates :condition_id, numericality: { other_than: 0, message: 'Select' }
+    validates :shipping_burden_id, numericality: { other_than: 0, message: 'Select' }
+    validates :ship_from_id, numericality: { other_than: 0, message: 'Select' }
+    validates :shipping_date_id, numericality: { other_than: 0, message: 'Select' }
+    validates :price, numericality: { only_integer: true, message: 'Half-width number' }
   end
 
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range"}
-
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
 end

@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :move_to_index
   before_action :check_sold_out
 
-
   def index
     @order = OrderAddress.new
   end
@@ -16,7 +15,7 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      @item = Item.find (order_params[:item_id])
+      @item = Item.findorder_params[:item_id]
       render :index
     end
   end
@@ -29,27 +28,23 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: Item.find(order_params[:item_id]).price,  
+      amount: Item.find(order_params[:item_id]).price,
       card: order_params[:token],
-      currency:'jpy'
+      currency: 'jpy'
     )
   end
 
   def set_item
-    @item = Item.find (params[:item_id])
+    @item = Item.findparams[:item_id]
   end
 
   def move_to_index
-    if user_signed_in? && @item.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if user_signed_in? && @item.user_id == current_user.id
   end
 
   def check_sold_out
-    if @item.order != nil
-      redirect_to root_path
-    end
+    redirect_to root_path unless @item.order.nil?
   end
 end
