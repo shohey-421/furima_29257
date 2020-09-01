@@ -93,14 +93,18 @@
         </div>
       <% end %>
     </div>
-    <%= form_with model:@comment, url: item_comments_path(@item.id), local: true do |f| %>
-      <%= f.text_area :text, id:"comment-text", class:"comment-text", placeholder:"コメントを入力" %>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <%= f.submit "コメントする",  class:"comment-btn" %>
+    <% if user_signed_in? && @item.user_id == current_user.id %>
+      <%= form_with model:@comment, url: item_comments_path(@item.id), local: true do |f| %>
+        <%= f.text_area :text, id:"comment-text", class:"comment-text", placeholder:"コメントを入力" %>
+        <p class="comment-warn">
+          相手のことを考え丁寧なコメントを心がけましょう。
+          <br>
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        </p>
+        <%= f.submit "コメントする",  class:"comment-btn" %>
+      <% end %>
+    <% else %>
+      <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
     <% end %>
   </div>
   <%# /コメント欄 %>

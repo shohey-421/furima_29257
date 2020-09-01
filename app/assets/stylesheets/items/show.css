@@ -141,14 +141,14 @@
 /* /商品の概要 */
 
 .comment-box {
-  width: 40vw;
+  width: 55vw;
   background-color: #fff;
   margin: 5vh 0;
   text-align: center;
 }
 
 .comment-text {
-  width: 100%;
+  width: 80%;
   height: 100px;
   padding: 10px;
   border: solid 2px #dedede;
@@ -156,7 +156,7 @@
 }
 
 .comment-warn {
-  padding: 10px;
+  padding: 10px 0px 10px 30px;
   font-size: 14px;
   margin: 10px 0px;
   text-align: left;
