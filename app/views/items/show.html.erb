@@ -81,14 +81,14 @@
   <div class="comment-box">
     <div class="comment-header">＜コメント＞</div>
     <div id="comments" class="comments">
-      <% @comments.reverse_each do |comment| %>
+      <% @comments.each do |comment| %>
         <div class="comment">
           <div class="post-user">
             <%= comment.user.nickname%>：
           </div>
           <div class="post-text">
             <%= comment.text %>
-            （<%= comment.created_at %>）
+            （<%= l comment.created_at %>）
           </div>
         </div>
       <% end %>
