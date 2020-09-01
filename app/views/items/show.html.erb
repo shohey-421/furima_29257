@@ -88,7 +88,7 @@
           </div>
           <div class="post-text">
             <%= comment.text %>
-            （<%= l comment.created_at %>）
+            <span class="post-date">（<%= l comment.created_at %>）</span>
           </div>
         </div>
       <% end %>
@@ -109,12 +109,12 @@
   </div>
   <%# /コメント欄 %>
   <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
+    <% if @item.previous.present? %>
+      <%= link_to "＜ 前の商品",item_path(@item.previous.id), class:"change-item-btn" %> 
+    <% end %>
+    <% if @item.next.present? %>
+      <%= link_to "後ろの商品 ＞", item_path(@item.next.id), class:"change-item-btn" %> 
+    <% end %>
   </div>
   <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
 </div>

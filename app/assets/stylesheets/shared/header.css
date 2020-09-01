@@ -66,6 +66,20 @@
   color: #333333;
 }
 
+.show-category-lists{
+  width: 250px;
+  position: absolute;
+  left: 180px;
+  top: 140px;
+  background-color: #ffffff;
+}
+
+.show-category-lists li{
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid darkgray;
+}
+
 .brand-list {
   text-decoration: none;
   color: #333333;
@@ -101,4 +115,8 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.hidden{
+  display: none;
 }

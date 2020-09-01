@@ -10,10 +10,14 @@
     </form>
   </div>
   <div class='nav'>
-    <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
-    </ul>
+    <div class="lists-left">
+      <%= link_to 'カテゴリー', "#", class: "category-list", id:"lists"%>
+      <ul class="show-category-lists hidden" id="pull-down">
+        <% Category.where.not(id:0).each do |category| %>
+          <li><%= link_to category.name, category_path(category.id) %></li>
+        <% end %>
+      </ul>
+    </div>
     <ul class='lists-right'>
 
       <% if user_signed_in? %>
