@@ -64,12 +64,12 @@
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
+  position: relative;
 }
 
 .show-category-lists{
   width: 250px;
   position: absolute;
-  left: 180px;
   top: 140px;
   background-color: #ffffff;
 }
