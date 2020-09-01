@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = Comment.where(item_id: params[:id])
   end
 
   def edit
