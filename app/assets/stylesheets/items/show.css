@@ -204,3 +204,26 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.comment-header{
+  margin: 0 0 20px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  color: #666;
+}
+
+.comment {
+  padding: 20px;
+  display: flex;
+}
+
+.post-user{
+  width: 20%;
+  color:#3CCACE ;
+}
+
+.post-text{
+  width: 80%;
+  text-align: left;
+}

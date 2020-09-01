@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def edit
