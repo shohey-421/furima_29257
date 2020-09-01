@@ -12,7 +12,7 @@
   <div class='nav'>
     <div class="lists-left">
       <%= link_to 'カテゴリー', "#", class: "category-list", id:"lists"%>
-      <ul class="show-categoy-lists hidden" id="pull-down">
+      <ul class="show-category-lists hidden" id="pull-down">
         <% Category.where.not(id:0).each do |category| %>
           <li><%= link_to category.name, category_path(category.id) %></li>
         <% end %>
