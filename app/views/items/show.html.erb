@@ -94,7 +94,7 @@
       <% end %>
     </div>
     <%= form_with model:@comment, url: item_comments_path(@item.id), local: true do |f| %>
-      <%= f.text_area :text, class:"comment-text", placeholder:"コメントを入力" %>
+      <%= f.text_area :text, id:"comment-text", class:"comment-text", placeholder:"コメントを入力" %>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
