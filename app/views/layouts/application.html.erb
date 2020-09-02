@@ -10,7 +10,9 @@
   <%= javascript_pack_tag 'application' %>
 </head>
 
-<body>
+<body> 
+<%= breadcrumbs separator: " &rsaquo; " %>
+
   <%= yield %>
 </body>
 

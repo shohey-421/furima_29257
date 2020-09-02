@@ -1,0 +1,14 @@
+<%= render "shared/header" %>
+<% breadcrumb :category_index %>
+<div class="category-wrapper">
+  <h2 class='title'>カテゴリー一覧</h2>
+  <div class="category-contents">
+    <ul class="category-lists">
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, category_path(category.id) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
