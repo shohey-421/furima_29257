@@ -224,9 +224,21 @@ a {
 }
 
 .item-contents>.title {
-  font-size: 5vh;
+  font-size: 4vh;
   line-height: 1.4;
   font-weight: bold;
+  position: relative;
+}
+
+.item-contents>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #3ccace;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .item-contents>.subtitle {
@@ -235,6 +247,7 @@ a {
   text-decoration: none;
   color: #3ccace;
   font-weight: bold;
+  margin-top: 70px;
 }
 
 .item-lists {
