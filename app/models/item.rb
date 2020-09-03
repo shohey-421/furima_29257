@@ -10,10 +10,10 @@ class Item < ApplicationRecord
   has_one :order
   has_many :comments
 
-  has_one_attached :image
+  has_many_attached :images
   validate :image_presence
   def image_presence
-    errors.add(:image, "can't be blank") unless image.attached?
+    errors.add(:images, "can't be blank") unless images.attached?
   end
 
   with_options presence: true do
