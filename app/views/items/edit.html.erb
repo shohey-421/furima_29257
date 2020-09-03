@@ -19,6 +19,8 @@ app/assets/stylesheets/items/new.css %>
         出品画像
         <span class="indispensable">必須</span>
       </div>
+      <%= image_tag @item.image , id:"existing-image"%>
+      <div id="image-list"></div>
       <div class="click-upload">
         <p>
           クリックしてファイルをアップロード

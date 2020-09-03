@@ -11,6 +11,7 @@ require("../profit_calc")
 require("../card")
 require("../category_menu.js")
 require("../search_window.js")
+require('./preview')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
