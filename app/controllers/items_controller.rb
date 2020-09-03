@@ -47,8 +47,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search(params[:keyword])
-    @keyword = params[:keyword]
+    @results = @q.result(distinct: true)
   end
 
   private
@@ -64,4 +63,6 @@ class ItemsController < ApplicationController
   def move_to_index
     redirect_to root_path unless user_signed_in? && @item.user_id == current_user.id
   end
+
+
 end

@@ -2,10 +2,9 @@
 
 <div class='item-contents'>
     <h2 class='title'>検索結果</h2>
-    <%= @keyword %>
     <ul class='item-lists'>
 
-      <% @items.each do |item| %>
+      <% @results.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>

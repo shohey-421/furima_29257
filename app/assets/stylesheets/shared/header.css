@@ -39,6 +39,7 @@
   cursor: pointer;
   background-color: #3ccace;
   padding: 8px;
+  color: #ffffff;
 }
 
 .search-icon {
@@ -57,7 +58,6 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
 }
 
 .category-list {
@@ -65,14 +65,16 @@
   margin-right: 3vw;
   color: #333333;
   position: relative;
+  cursor: pointer;
 }
+
 
 .show-category-lists{
   width: 250px;
   position: absolute;
-  top: 160px;
+  top:  40px;
   background-color: #ffffff;
-  z-index: 10;
+  z-index: 9;
 }
 
 .show-category-lists li{
@@ -81,9 +83,43 @@
   border-bottom: 1px solid darkgray;
 }
 
-.brand-list {
+.detailed-search {
   text-decoration: none;
+  margin-right: 3vw;
   color: #333333;
+  position: relative;
+  cursor: pointer;
+}
+
+.search-window{
+  width: 450px;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  background-color: #ffffff;
+  z-index: 10;
+  padding: 20px 20px 20px 40px;
+  border: 3px solid gray;
+  border-radius: 20px;
+}
+
+.detailed-search-form-title{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detailed-search-form{
+  margin-bottom: 40px;
+}
+
+.price-form{
+  width:30%;
+}
+
+.detailed-search-form-btn{
+  text-align: center;
 }
 
 .lists-right {

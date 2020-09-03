@@ -2,21 +2,50 @@
 <header class='top-page-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
-    <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |f| %>
-      <%= f.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
+    <%= search_form_for @q, url: search_items_path, local: true, method: :get, class: "search-form" do |f| %>
+      <%= f.search_field :name_cont, placeholder: "キーワードから探す", class: "input-box" %>
       <%= f.submit "検索", class: "search-button" %>
     <% end %>
   </div>
   <div class='nav'>
-    <div class="lists-left">
-      <%= link_to 'カテゴリー', "#", class: "category-list", id:"lists"%>
-      <ul class="show-category-lists hidden" id="pull-down">
+    <ul class="lists-left">
+      <li class="category-list", id="lists">
+        カテゴリー
+        <ul class="show-category-lists hidden" id="pull-down">
           <li><%= link_to "カテゴリー一覧", categories_path %></li>
-        <% Category.where.not(id:0).each do |category| %>
-          <li><%= link_to category.name, category_path(category.id) %></li>
-        <% end %>
-      </ul>
-    </div>
+          <% Category.where.not(id:0).each do |category| %>
+            <li><%= link_to category.name, category_path(category.id) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="detailed-search"><span id="detailed-search">詳細検索</span>
+        <div class="search-window hidden", id="search-window">
+          <p class="detailed-search-form-title">詳細検索</p>
+          <%= search_form_for @q, url:search_items_path do |f| %>
+            <div class="detailed-search-form">
+              <%= f.label :name, "キーワード：" %>
+              <%= f.search_field :name_cont %>
+            </div>
+            <div class="detailed-search-form">
+              <%= f.label :category_id, "カテゴリー：" %>
+              <%= f.collection_select :category_id_eq, @categories, :id, :name, include_blank: '指定なし' %>
+            </div>
+            <div class="detailed-search-form">
+              <%= f.label :condition_id, "商品の状態：" %>
+              <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
+            </div>
+            <div class="detailed-search-form">
+              <%= f.label :price,"価格：" %>
+              <%= f.number_field :price_gteq, class:"price-form" %>円〜
+              <%= f.number_field :price_lt, class:"price-form" %>円
+            </div>
+            <div class="detailed-search-form-btn">
+              <%= f.submit "検索" %>
+            </div>
+          <% end %>
+        </div>
+      </li>
+    </ul>
     <ul class='lists-right'>
 
       <% if user_signed_in? %>
