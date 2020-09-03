@@ -18,7 +18,7 @@
           <% end %>
         </ul>
       </li>
-      <li class="detailed-search"><span id="detailed-search">詳細検索</span>
+      <li class="detailed-search"><span class="detailed-search-title", id="detailed-search">詳細検索</span>
         <div class="search-window hidden", id="search-window">
           <p class="detailed-search-form-title">詳細検索</p>
           <%= search_form_for @q, url:search_items_path do |f| %>
@@ -33,6 +33,10 @@
             <div class="detailed-search-form">
               <%= f.label :condition_id, "商品の状態：" %>
               <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
+            </div>
+            <div class="detailed-search-form">
+              <%= f.label :shipping_burden_id, "配送料の負担：" %>
+              <%= f.collection_select :shipping_burden_id_eq, @shipping_burden, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
               <%= f.label :price,"価格：" %>

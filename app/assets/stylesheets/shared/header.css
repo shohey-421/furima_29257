@@ -83,12 +83,15 @@
   border-bottom: 1px solid darkgray;
 }
 
+.detailed-search-title{
+  cursor: pointer;
+}
+
 .detailed-search {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
   position: relative;
-  cursor: pointer;
 }
 
 .search-window{
@@ -120,6 +123,7 @@
 
 .detailed-search-form-btn{
   text-align: center;
+  cursor: pointer;
 }
 
 .lists-right {
