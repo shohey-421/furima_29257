@@ -1,3 +1,6 @@
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+} else{
+
 window.addEventListener('load', function(){
 
   const searchButton = document.getElementById("detailed-search")
@@ -11,3 +14,4 @@ window.addEventListener('load', function(){
     }
   })
 })
+}

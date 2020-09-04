@@ -1,3 +1,5 @@
+if (document.URL.match(/items/) && (document.URL.match(/new/) || document.URL.match( /edit/ ))) {
+
 function profit_calc() {
   const item_price = document.getElementById("item-price");
   item_price.addEventListener("input",function(e) {
@@ -18,3 +20,4 @@ function profit_calc() {
   })
   }
   window.addEventListener("load", profit_calc)
+}
