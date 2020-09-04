@@ -1,0 +1,11 @@
+.edit-user{
+  font-size: 2vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-top: 70px;
+  border:2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
