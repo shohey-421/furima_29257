@@ -1,4 +1,4 @@
-if (document.URL.match(/items/) && (document.URL.match(/new/) || document.URL.match( /edit/ ))) {
+if (document.URL.match(/items/) ) {
 
 function profit_calc() {
   const item_price = document.getElementById("item-price");
