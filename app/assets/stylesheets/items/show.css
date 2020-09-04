@@ -29,7 +29,21 @@
   height: 50vh;
   width: 60vw;
   min-height: 500px;
-  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
+.item-img-content{
+  height: 50vh;
+}
+
+.slider div {
+  height: 500px;
+  width: 500px;
+}
+
+.slide-item-img{
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 

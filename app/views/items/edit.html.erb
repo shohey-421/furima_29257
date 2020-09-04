@@ -19,11 +19,19 @@ app/assets/stylesheets/items/new.css %>
         出品画像
         <span class="indispensable">必須</span>
       </div>
-      <%= image_tag @item.images.first , id:"existing-image"%>
+      <div class='item-img-content', id="existing-image">
+        <div class="slider">
+          <% @item.images.each do |image| %>
+            <div>
+              <%= image_tag image ,class:"slide-item-img" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
       <div id="image-list"></div>
       <div class="click-upload">
         <p>
-          クリックしてファイルをアップロード
+          クリックしてファイルをアップロード<br>(複数枚登録する時は画像ファイルを同時に選択してください)
         </p>
         <%= f.file_field :images, multiple: true, id:"item-image" %>
       </div>
