@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'categories/show'
   root "items#index"
   devise_for :users
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [:index,:show]
+  resources :users, :only => [:show]
 end
