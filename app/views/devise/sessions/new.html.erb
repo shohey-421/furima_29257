@@ -2,8 +2,8 @@
 
 <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
-  <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post%>
-  <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
+  <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"sns-sign"%>
+  <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"sns-sign"%>
   <div class='form-header'>
     <h1 class='form-header-text'>
       会員情報入力
