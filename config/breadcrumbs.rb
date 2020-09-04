@@ -26,6 +26,12 @@ crumb :item do |item|
   parent :category
 end
 
+crumb :user do
+  user = User.find(params[:id])
+  link "#{user.nickname}さんのページ", user_path(user)
+  parent :root
+end
+
 
 # crumb :issue do |issue|
 #   link issue.title, issue_path(issue)
