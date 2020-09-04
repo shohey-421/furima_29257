@@ -3,10 +3,11 @@ class OrderAddress
 
   attr_accessor :postcode, :region_id, :city, :postal_code, :prefecture, :city, :block, :building, :phone_number, :user_id, :item_id, :token
 
+  validates :token, presence:{ message: 'を正しく入力してください' }
+
   with_options presence: true do
-    validates :token
-    validates :postcode,      format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'Include hyphen(-)' }
-    validates :region_id,     numericality: { other_than: 0, message: 'Select' }
+    validates :postcode,      format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'はハイフン(-)を含んでください' }
+    validates :region_id,     numericality: { other_than: 0, message: 'を選択してください' }
     validates :city
     validates :block
     validates :phone_number, length: { maximum: 11 }

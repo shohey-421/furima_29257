@@ -13,21 +13,21 @@ class Item < ApplicationRecord
   has_many_attached :images
   validate :image_presence
   def image_presence
-    errors.add(:images, "can't be blank") unless images.attached?
+    errors.add(:images, "は必須です") unless images.attached?
   end
 
   with_options presence: true do
     validates :name
     validates :description
-    validates :category_id, numericality: { other_than: 0, message: 'Select' }
-    validates :condition_id, numericality: { other_than: 0, message: 'Select' }
-    validates :shipping_burden_id, numericality: { other_than: 0, message: 'Select' }
-    validates :ship_from_id, numericality: { other_than: 0, message: 'Select' }
-    validates :shipping_date_id, numericality: { other_than: 0, message: 'Select' }
-    validates :price, numericality: { only_integer: true, message: 'Half-width number' }
+    validates :category_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :condition_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :shipping_burden_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :ship_from_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :shipping_date_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください' }
   end
 
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は¥300〜9,999,999で入力してください' }
 
   def previous
     Item.where("id < ?", self.id).order("id DESC").first

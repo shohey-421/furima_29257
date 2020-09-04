@@ -19,3 +19,34 @@ ja:
       - :year
       - :month
       - :day
+
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 苗字
+        first_name: 名前
+        last_name_kana: 苗字（カナ）
+        first_name_kana: 名前（カナ）
+        birthday: 生年月日
+      item:
+        images: 画像
+        name: 商品名
+        description: 商品の説明
+        category_id: カテゴリー
+        condition_id: 商品の状態 
+        shipping_burden_id: 配送料の負担 
+        ship_from_id: 発送元の地域
+        shipping_date_id: 発送までの日数
+        price: 販売価格
+
+  activemodel:
+    attributes:
+      order_address:
+        token: クレジットカード情報
+        postcode: 郵便番号
+        region_id: 都道府県
+        city: 市区町村
+        block: 番地
+        phone_number: 電話番号
+
