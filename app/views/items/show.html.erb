@@ -17,9 +17,16 @@
       </div>
     </div>
     <div class="item-price-box">
-      <span class="item-price">
-        ¥ <%= @item.price %>
-      </span>
+      <% if @item.order != nil %> 
+        <span class="sold-price">
+          <span class="sold-line">¥ <%= @item.price %></span>
+        </span>
+        <span class="sold-out-show">Sold Out!!</span>
+      <% else %>
+        <span class="item-price">
+          ¥ <%= @item.price %>
+        </span>
+      <% end %>
       <span class="item-postage">
         (税込) 送料込み
       </span>
@@ -46,7 +53,7 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= Category.find(@item.category_id).name %></td>
+          <td class="detail-value"><%= link_to @item.category.name, category_path(@item.category_id) %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
@@ -118,7 +125,7 @@
       <%= link_to "後ろの商品 ＞", item_path(@item.next.id), class:"change-item-btn" %> 
     <% end %>
   </div>
-  <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
+  <%= link_to "#{@item.category.name}カテゴリーをもっと見る", category_path(@item.category_id),class:'another-item' %>
 </div>
 
 <%= render "shared/footer" %>

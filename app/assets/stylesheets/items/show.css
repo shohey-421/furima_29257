@@ -63,6 +63,23 @@
   font-size: 16px;
 }
 
+.sold-out-show{
+  font-size: 3vh;
+  font-weight: bold;
+  color: red;
+}
+
+.item-price-box>.sold-price {
+  font-size: 4vh;
+  font-weight: bold;
+  color: #f00;
+  text-decoration : line-through ;
+}
+
+.sold-line{
+  color: #000;
+}
+
 
 .item-red-btn {
   text-align: center;
