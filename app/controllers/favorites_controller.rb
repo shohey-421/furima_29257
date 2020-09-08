@@ -3,14 +3,17 @@ class FavoritesController < ApplicationController
   before_action :set_item_user
 
   def create
-    Favorite.create(item_id:@item.id, user_id: @user.id)
-    redirect_to  item_path(@item.id)
+    @favorite = Favorite.create(item_id:@item.id, user_id: @user.id)
+    @favorites = Favorite.where(item_id: @item.id)
+    # redirect_to  item_path(@item.id)
   end
 
   def destroy
     favorite = Favorite.find(params[:id])
     favorite.destroy
-    redirect_to  item_path(@item.id)
+    @favorite = Favorite.find_by(item_id:@item.id, user_id: @user.id)
+    @favorites = Favorite.where(item_id: @item.id)
+    # redirect_to  item_path(@item.id)
   end
  
   private 

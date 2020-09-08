@@ -8,6 +8,35 @@
 
     <%= link_to '登録情報変更', edit_user_registration_path, class: "edit-user" %>
 
+      <h2 class='subtitle'>お気に入りした商品</h2>
+      <ul class='item-lists'>
+        <% @favorites.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag item.images.first , class: "item-img" %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price %>円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
+                    <%= fa_icon "star", class:"favorite-star-icon" %>
+                  <% else %>
+                    <%= fa_icon "star-o", class:"favorite-star-icon" %>
+                  <% end %>
+                  <span class='star-count'><%= item.favorites.count %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </li>
+        <% end %>    
+      </ul>
+
       <h2 class='subtitle'>購入済の商品</h2>
       <ul class='item-lists'>
         <% @purchased.each do |item| %>
@@ -23,8 +52,12 @@
               <div class='item-price'>
                 <span><%= item.price %>円<br>(税込み)</span>
                 <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                  <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
+                    <%= fa_icon "star", class:"favorite-star-icon" %>
+                  <% else %>
+                    <%= fa_icon "star-o", class:"favorite-star-icon" %>
+                  <% end %>
+                  <span class='star-count'><%= item.favorites.count %></span>
                 </div>
               </div>
             </div>
@@ -57,8 +90,12 @@
           <div class='item-price'>
             <span><%= item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+              <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
+                <%= fa_icon "star", class:"favorite-star-icon" %>
+              <% else %>
+                <%= fa_icon "star-o", class:"favorite-star-icon" %>
+              <% end %>
+              <span class='star-count'><%= item.favorites.count %></span>
             </div>
           </div>
         </div>
