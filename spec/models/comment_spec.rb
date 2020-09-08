@@ -12,7 +12,7 @@ RSpec.describe Comment, type: :model do
     it 'textが空では登録できないこと' do
       @comment.text = nil
       @comment.valid?
-      expect(@comment.errors.full_messages).to include "Textを入力してください"
+      expect(@comment.errors.full_messages).to include 'Textを入力してください'
     end
   end
 end

@@ -25,9 +25,7 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(item_id: params[:id]).includes(:user)
     @favorites = Favorite.where(item_id: params[:id]).includes(:user)
-    if user_signed_in? 
-      @favorite = Favorite.find_by(item_id: params[:id], user_id: current_user.id)
-    end
+    @favorite = Favorite.find_by(item_id: params[:id], user_id: current_user.id) if user_signed_in?
   end
 
   def edit
@@ -57,7 +55,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit({images: []}, :name, :description, :category_id, :condition_id, :shipping_burden_id, :ship_from_id, :shipping_date_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit({ images: [] }, :name, :description, :category_id, :condition_id, :shipping_burden_id, :ship_from_id, :shipping_date_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
@@ -67,6 +65,4 @@ class ItemsController < ApplicationController
   def move_to_index
     redirect_to root_path unless user_signed_in? && @item.user_id == current_user.id
   end
-
-
 end

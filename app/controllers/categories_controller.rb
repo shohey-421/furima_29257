@@ -5,6 +5,6 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.where.not(id:0)
+    @categories = Category.where.not(id: 0)
   end
 end
