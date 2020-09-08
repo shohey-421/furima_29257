@@ -139,12 +139,16 @@
   border-radius: 40px;
   width: 15vw;
   min-width: 200px;
-  color: rgb(249, 75, 0);
+  color: darkorange;
   border: 2px solid #ffb340;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+}
+.favorite-btn a{
+  color: darkorange;
+  margin-right:1em;
 }
 
 .favorite-star-icon {

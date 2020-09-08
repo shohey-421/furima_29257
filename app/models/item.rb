@@ -7,8 +7,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_date
 
   belongs_to :user
-  has_one :order
-  has_many :comments
+  has_one :order, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_many_attached :images
   validate :image_presence

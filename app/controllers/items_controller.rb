@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = Comment.where(item_id: params[:id]).includes(:user)
+    @favorites = Favorite.where(item_id: params[:id]).includes(:user)
+    if user_signed_in? 
+      @favorite = Favorite.find_by(item_id: params[:id], user_id: current_user.id)
+    end
   end
 
   def edit

@@ -6,7 +6,7 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
-      <% @items.each do |item| %>
+      <% @items.reverse.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
@@ -26,8 +26,12 @@
           <div class='item-price'>
             <span><%= item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+              <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
+                <%= fa_icon "star", class:"favorite-star-icon" %>
+              <% else %>
+                <%= fa_icon "star-o", class:"favorite-star-icon" %>
+              <% end %>
+            <span class='star-count'><%= item.favorites.count %></span>
             </div>
           </div>
         </div>

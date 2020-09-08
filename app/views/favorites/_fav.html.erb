@@ -1,0 +1,7 @@
+        <% if user_signed_in? && @favorite != nil %>
+          <%= fa_icon "star", class:"favorite-star-icon" %>
+          <%= link_to 'お気に入り',  item_favorite_path(@item.id, @favorite.id), method: :delete %>
+        <% else %>
+          <%= fa_icon "star-o", class:"favorite-star-icon" %>
+          <%= link_to 'お気に入り',  item_favorites_path(@item.id), method: :post %>
+        <% end %>
