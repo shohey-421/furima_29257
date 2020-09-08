@@ -9,6 +9,7 @@
     <%= link_to '登録情報変更', edit_user_registration_path, class: "edit-user" %>
 
       <h2 class='subtitle'>お気に入りした商品</h2>
+      <% if @favorites != [] %>
       <ul class='item-lists'>
         <% @favorites.each do |item| %>
         <li class='list'>
@@ -36,8 +37,12 @@
         </li>
         <% end %>    
       </ul>
+      <% else %>
+      お気に入りした商品はありません
+      <% end %>
 
       <h2 class='subtitle'>購入済の商品</h2>
+      <% if @purchased != [] %>
       <ul class='item-lists'>
         <% @purchased.each do |item| %>
         <li class='list'>
@@ -65,10 +70,14 @@
         </li>
         <% end %>    
       </ul>
+      <% else %>
+      購入済の商品はありません
+      <% end %>
   <% end %>
 
 
   <h2 class='subtitle'>出品中の商品</h2>
+  <% if @items != [] %>
     <ul class='item-lists'>
       <% @items.each do |item| %>
       <li class='list'>
@@ -103,6 +112,9 @@
       </li>
       <% end %>    
     </ul>
+    <% else %>
+    出品中の商品はありません
+    <% end %>
 </div>
 
 <%= render "shared/footer" %>

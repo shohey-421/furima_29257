@@ -5,7 +5,6 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.create(item_id:@item.id, user_id: @user.id)
     @favorites = Favorite.where(item_id: @item.id)
-    # redirect_to  item_path(@item.id)
   end
 
   def destroy
@@ -13,7 +12,6 @@ class FavoritesController < ApplicationController
     favorite.destroy
     @favorite = Favorite.find_by(item_id:@item.id, user_id: @user.id)
     @favorites = Favorite.where(item_id: @item.id)
-    # redirect_to  item_path(@item.id)
   end
  
   private 
