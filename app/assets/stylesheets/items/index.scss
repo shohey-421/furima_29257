@@ -228,6 +228,7 @@ a {
   line-height: 1.4;
   font-weight: bold;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .item-contents>.title::after {
@@ -258,19 +259,23 @@ a {
 }
 
 .item-lists>.list {
-  width: 37vh;
+  width: 25vh;
   padding: 1vw;
+  margin-right:1vw;
   background-color: #FFF;
+  border: 1px solid lightgray;
+  box-shadow:5px 5px 5px rgba(0,0,0,0.4);
 }
 
 
 .item-img-content {
   position: relative;
+  text-align: center;
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 20vh;
+  height: 20vh;
   object-fit: contain;
 }
 

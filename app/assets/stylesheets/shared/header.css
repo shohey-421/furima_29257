@@ -80,7 +80,11 @@
 .show-category-lists li{
   list-style: none;
   padding: 10px;
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid #3ccace;
+}
+
+.show-category-lists a{
+  color: black;
 }
 
 .detailed-search-title{
@@ -102,7 +106,7 @@
   background-color: #ffffff;
   z-index: 10;
   padding: 20px 20px 20px 40px;
-  border: 3px solid gray;
+  border: 3px solid #3ccace;
   border-radius: 20px;
 }
 
@@ -144,6 +148,7 @@
 .logout {
   text-decoration: none;
   color: #333333;
+  margin-left: 10px;
 }
 
 .login {

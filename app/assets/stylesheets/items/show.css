@@ -22,7 +22,7 @@
 .item-box>.name {
   text-align: center;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 3vh;
 }
 
 .item-box-img {
@@ -37,8 +37,8 @@
 }
 
 .slider div {
-  height: 500px;
-  width: 500px;
+  height: 50vh;
+  width: 50vh;
 }
 
 .slide-item-img{

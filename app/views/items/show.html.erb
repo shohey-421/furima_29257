@@ -19,12 +19,12 @@
     <div class="item-price-box">
       <% if @item.order != nil %> 
         <span class="sold-price">
-          <span class="sold-line">¥ <%= @item.price %></span>
+          <span class="sold-line"><%= @item.price.to_s(:delimited) %>円</span>
         </span>
         <span class="sold-out-show">Sold Out!!</span>
       <% else %>
         <span class="item-price">
-          ¥ <%= @item.price %>
+          <%= @item.price.to_s(:delimited) %>円
         </span>
       <% end %>
       <span class="item-postage">

@@ -24,7 +24,7 @@
             <%= item.name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br>(税込み)</span>
+            <span><%= item.price.to_s(:delimited) %>円<br>(税込み)</span>
             <div class='star-btn'>
               <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
                 <%= fa_icon "star", class:"favorite-star-icon" %>
@@ -40,7 +40,7 @@
       <% end %>
 
       <%# 商品がない場合のダミー %>
-      <% if @items == nil %>
+      <% if @items == [] %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
