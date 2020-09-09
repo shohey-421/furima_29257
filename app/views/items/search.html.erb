@@ -1,7 +1,8 @@
 <%= render "shared/header" %>
 
 <div class='item-contents'>
-    <h2 class='title'>検索結果</h2>
+  <h2 class='title'>検索結果</h2>
+  <% if @results != [] %>
     <ul class='item-lists'>
 
       <% @results.each do |item| %>
@@ -24,8 +25,12 @@
           <div class='item-price'>
             <span><%= item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+              <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
+                <%= fa_icon "star", class:"favorite-star-icon" %>
+              <% else %>
+                <%= fa_icon "star-o", class:"favorite-star-icon" %>
+              <% end %>
+              <span class='star-count'><%= item.favorites.count %></span>
             </div>
           </div>
         </div>
@@ -33,8 +38,9 @@
       </li>
       <% end %>    
     </ul>
-  </div>
-  <%# //商品一覧 %>
+  <% else %>
+    <p class="no-result-message">条件に合致する商品はありませんでした</p>
+  <% end %>
 </div>
 <%= link_to (new_item_path) do %>
   <div class='purchase-btn'>

@@ -41,7 +41,7 @@
       お気に入りした商品はありません
       <% end %>
 
-      <h2 class='subtitle'>購入済の商品</h2>
+      <h2 class='subtitle'>購入した商品</h2>
       <% if @purchased != [] %>
       <ul class='item-lists'>
         <% @purchased.each do |item| %>
@@ -76,7 +76,7 @@
   <% end %>
 
 
-  <h2 class='subtitle'>出品中の商品</h2>
+  <h2 class='subtitle'>出品した商品</h2>
   <% if @items != [] %>
     <ul class='item-lists'>
       <% @items.each do |item| %>
@@ -113,7 +113,7 @@
       <% end %>    
     </ul>
     <% else %>
-    出品中の商品はありません
+    出品した商品はありません
     <% end %>
 </div>
 

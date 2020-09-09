@@ -10,6 +10,7 @@ if (document.URL.match(/items/) && (document.URL.match(/new/) || document.URL.ma
       const blobImage = document.createElement('img');
       blobImage.setAttribute('src', blob);
       blobImage.setAttribute('style', "width:100%;object-fit: contain;");
+      blobImage.setAttribute('id', "existing-image");
 
      // 生成したHTMLの要素をブラウザに表示させる
       imageElement.appendChild(blobImage);
