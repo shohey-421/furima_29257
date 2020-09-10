@@ -92,6 +92,7 @@
 
 .show-category-lists a{
   color: black;
+  display: block
 }
 
 .detailed-search-title{

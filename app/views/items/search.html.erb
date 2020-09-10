@@ -5,28 +5,38 @@
     <div class="search-form-area">
       <%= search_form_for @q, remote: true ,url:search_items_path do |f| %>
         <div class="detailed-search-form">
+          <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+        </div>
+        <div class="detailed-search-form">
+          <%= fa_icon 'binoculars' %>
           <%= f.label :name ,"キーワード" %><br>
           <%= f.search_field :name_cont %>
         </div>
         <div class="detailed-search-form">
+          <%= fa_icon 'bars' %>
           <%= f.label :category_id, "カテゴリー" %><br>
           <%= f.collection_select :category_id_eq, @categories, :id, :name, include_blank: '指定なし' %>
         </div>
         <div class="detailed-search-form">
+          <%= fa_icon 'star-o' %>
           <%= f.label :condition_id, "商品の状態" %><br>
           <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
         </div>
         <div class="detailed-search-form">
+          <%= fa_icon 'truck' %>
           <%= f.label :shipping_burden_id, "配送料の負担" %><br>
           <%= f.collection_select :shipping_burden_id_eq, @shipping_burden, :id, :name, include_blank: '指定なし' %>
         </div>
         <div class="detailed-search-form">
+          <%= fa_icon 'credit-card' %>
           <%= f.label :price,"価格" %><br>
           <%= f.number_field :price_gteq, class:"price-form" %>〜
           <%= f.number_field :price_lt, class:"price-form" %>円
         </div>
         <div class="detailed-search-form-btn">
-          <%= f.submit "検索" %>
+          <%= button_tag type: 'submit', class: "search-button"  do %>
+            検索<%= fa_icon 'search' %>
+          <% end %>
         </div>
       <% end %>
     </div>

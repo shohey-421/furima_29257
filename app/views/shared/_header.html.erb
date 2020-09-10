@@ -25,28 +25,35 @@
           <p class="detailed-search-form-title">詳細検索</p>
           <%= search_form_for @q, url:search_items_path do |f| %>
             <div class="detailed-search-form">
+              <%= fa_icon 'binoculars' %>
               <%= f.label :name, "キーワード" %>
               <%= f.search_field :name_cont %>
             </div>
             <div class="detailed-search-form">
+              <%= fa_icon 'bars' %>
               <%= f.label :category_id, "カテゴリー" %>
               <%= f.collection_select :category_id_eq, @categories, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
+              <%= fa_icon 'star-o' %>
               <%= f.label :condition_id, "商品の状態" %>
               <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
+              <%= fa_icon 'truck' %>
               <%= f.label :shipping_burden_id, "配送料の負担" %>
               <%= f.collection_select :shipping_burden_id_eq, @shipping_burden, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
+              <%= fa_icon 'credit-card' %>
               <%= f.label :price,"価格" %><br>
               <%= f.number_field :price_gteq, class:"price-form" %>円〜
               <%= f.number_field :price_lt, class:"price-form" %>円
             </div>
             <div class="detailed-search-form-btn">
-              <%= f.submit "検索" %>
+              <%= button_tag type: 'submit', class: "search-button"  do %>
+                検索<%= fa_icon 'search' %>
+              <% end %>
             </div>
           <% end %>
         </div>

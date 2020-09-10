@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 <% breadcrumb :category %>
-
-<div class='item-contents'>
-    <h2 class='title'><%= @category.name%>の商品一覧</h2>
-    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+<div class="main">
+<div class="caregory-item-wrapper">
+  <h2 class='caregory-title'><%= @category.name%>の商品一覧</h2>
+  <div class='item-contents'>
     <ul class='item-lists'>
 
       <% @items.reverse.each do |item| %>
@@ -63,6 +63,9 @@
     
     </ul>
   </div>
+</div>
+</div>
+
 <%= link_to (new_item_path) do %>
   <div class='purchase-btn'>
     <span class='purchase-btn-text'>出品する</span>

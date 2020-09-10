@@ -1,6 +1,6 @@
 <h2 class='title'>検索結果</h2>
 <% if results != [] %>
-  <ul class='search-item-lists'>
+  <ul class='item-lists'>
     <% results.each do |item| %>
     <li class='list'>
       <%= link_to item_path(item.id) do %>

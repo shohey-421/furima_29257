@@ -1,11 +1,63 @@
 .edit-user{
-  font-size: 2vh;
+  font-size: 1.5vh;
   margin: 1vh 0;
   text-decoration: none;
-  color: black;
+  color: #333333;
   font-weight: bold;
   margin-top: 70px;
-  border:2px solid black;
+  border:2px solid #555555 ;
   border-radius: 5px;
   padding: 10px;
+}
+
+.edit-user-btn{
+  text-align: right;
+}
+
+.user-page-wrapper{
+  margin: 0 auto;
+  padding: 1vh 15vw 3vh;
+  width: 100vw;
+}
+
+.user-page-title{
+  font-size: 3vh;
+  line-height: 1.4;
+  font-weight: bold;
+  position: relative;
+  margin:20px 0 50px 0;
+  text-align: center;
+}
+
+.user-page-title:after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #3ccace;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.user-page-wrapper .subtitle {
+  font-size: 2vh;
+  margin: 4vh 0 3vh ;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.user-page-wrapper .item-contents{
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.no-item-message{
+  text-align: center;
 }
