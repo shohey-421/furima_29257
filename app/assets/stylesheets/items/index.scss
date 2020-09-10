@@ -8,7 +8,7 @@ a {
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
-  width: 100vw;
+  width: 100%;
   background-image: image-url('furima-header01.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -123,7 +123,7 @@ a {
 
 /* 画面中央の「会員数日本一位」帯部分*/
 .ad-contents {
-  width: 100vw;
+  width: 100%;
   background-image: image-url('furima-header02.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -261,7 +261,7 @@ a {
 .item-lists>.list {
   width: 25vh;
   padding: 1vw;
-  margin-right:1vw;
+  margin:1vw;
   background-color: #FFF;
   border: 1px solid lightgray;
   box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -290,7 +290,7 @@ a {
 
 .sold-out>span {
   color: #FFF;
-  font-size: 45px;
+  font-size: 20px;
   font: bold;
 }
 

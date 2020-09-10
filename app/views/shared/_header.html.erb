@@ -4,7 +4,9 @@
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <%= search_form_for @q, url: search_items_path, local: true, method: :get, class: "search-form" do |f| %>
       <%= f.search_field :name_cont, placeholder: "キーワードから探す", class: "input-box" %>
-      <%= f.submit "検索", class: "search-button" %>
+      <%= button_tag type: 'submit', class: "search-button"  do %>
+        <i class='fa fa-search'></i>
+      <% end %>
     <% end %>
   </div>
   <div class='nav'>
@@ -23,23 +25,23 @@
           <p class="detailed-search-form-title">詳細検索</p>
           <%= search_form_for @q, url:search_items_path do |f| %>
             <div class="detailed-search-form">
-              <%= f.label :name, "キーワード：" %>
+              <%= f.label :name, "キーワード" %>
               <%= f.search_field :name_cont %>
             </div>
             <div class="detailed-search-form">
-              <%= f.label :category_id, "カテゴリー：" %>
+              <%= f.label :category_id, "カテゴリー" %>
               <%= f.collection_select :category_id_eq, @categories, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
-              <%= f.label :condition_id, "商品の状態：" %>
+              <%= f.label :condition_id, "商品の状態" %>
               <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
-              <%= f.label :shipping_burden_id, "配送料の負担：" %>
+              <%= f.label :shipping_burden_id, "配送料の負担" %>
               <%= f.collection_select :shipping_burden_id_eq, @shipping_burden, :id, :name, include_blank: '指定なし' %>
             </div>
             <div class="detailed-search-form">
-              <%= f.label :price,"価格：" %>
+              <%= f.label :price,"価格" %><br>
               <%= f.number_field :price_gteq, class:"price-form" %>円〜
               <%= f.number_field :price_lt, class:"price-form" %>円
             </div>

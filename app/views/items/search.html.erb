@@ -1,47 +1,44 @@
 <%= render "shared/header" %>
-
-<div class='item-contents'>
-  <h2 class='title'>検索結果</h2>
-  <% if @results != [] %>
-    <ul class='item-lists'>
-
-      <% @results.each do |item| %>
-      <li class='list'>
-        <%= link_to item_path(item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag item.images.first , class: "item-img" %>
-
-          <% if item.order != nil %> 
-          <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-          <% end %>
-
+<div class="main">
+<div class="search-wrapper">
+  <div class="search-console">
+    <div class="search-form-area">
+      <%= search_form_for @q, remote: true ,url:search_items_path do |f| %>
+        <div class="detailed-search-form">
+          <%= f.label :name ,"キーワード" %><br>
+          <%= f.search_field :name_cont %>
         </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.name %>
-          </h3>
-          <div class='item-price'>
-            <span><%= item.price.to_s(:delimited) %>円<br>(税込み)</span>
-            <div class='star-btn'>
-              <% if user_signed_in? && Favorite.where(id: item.favorites.ids).find_by(user_id: current_user.id) != nil %>
-                <%= fa_icon "star", class:"favorite-star-icon" %>
-              <% else %>
-                <%= fa_icon "star-o", class:"favorite-star-icon" %>
-              <% end %>
-              <span class='star-count'><%= item.favorites.count %></span>
-            </div>
-          </div>
+        <div class="detailed-search-form">
+          <%= f.label :category_id, "カテゴリー" %><br>
+          <%= f.collection_select :category_id_eq, @categories, :id, :name, include_blank: '指定なし' %>
         </div>
-        <% end %>
-      </li>
-      <% end %>    
-    </ul>
-  <% else %>
-    <p class="no-result-message">条件に合致する商品はありませんでした</p>
-  <% end %>
+        <div class="detailed-search-form">
+          <%= f.label :condition_id, "商品の状態" %><br>
+          <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
+        </div>
+        <div class="detailed-search-form">
+          <%= f.label :shipping_burden_id, "配送料の負担" %><br>
+          <%= f.collection_select :shipping_burden_id_eq, @shipping_burden, :id, :name, include_blank: '指定なし' %>
+        </div>
+        <div class="detailed-search-form">
+          <%= f.label :price,"価格" %><br>
+          <%= f.number_field :price_gteq, class:"price-form" %>〜
+          <%= f.number_field :price_lt, class:"price-form" %>円
+        </div>
+        <div class="detailed-search-form-btn">
+          <%= f.submit "検索" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='search-item-contents', id="search-item-contents">
+    <%= render partial:"items/search-item",locals: { results: @results} %>
+  </div>
+
 </div>
+</div>
+
 <%= link_to (new_item_path) do %>
   <div class='purchase-btn'>
     <span class='purchase-btn-text'>出品する</span>
