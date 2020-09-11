@@ -7,21 +7,36 @@
 
 .search-console{
   width: 300px;
-  padding: 5px;
-  background-color: #FFF;
 }
 
 .search-form-area{
-  padding: 10px;
+  padding: 15px;
+  background-color: #FFF;
 }
 
-.detailed-search-form input,select {
+.detailed-sort-form>select {
+  width: 100%;
+  margin: 15px 0 60px 0;
+  height: 45px;
+  border: 1px solid lightgray;
+  color: #444444;
+  border-radius: 5px;
+  padding-left: 0.5em;
+}
+
+.detailed-search-form>input,select {
   width: 100%;
   margin-top: 15px;
   height: 45px;
   border: 1px solid lightgray;
   color: #444444;
   border-radius: 5px;
+  padding-left: 0.5em;
+}
+
+.search-form-check_box>label{
+  display: block;
+  margin-left: 1em;
 }
 
 .detailed-search-form .price-form{
@@ -29,9 +44,13 @@
   margin-right: 5px;
 }
 
-.detailed-search-form label{
+.detailed-search-form>label{
   font-weight: bold;
   color:#444444 ;
+}
+
+.search-form-check_box-sell{
+  padding-left: 1em;
 }
 
 .detailed-search-form-btn .search-button{
@@ -40,6 +59,29 @@
   border-radius: 5px;
   padding: 0 10px ;
   font-size: 15px;
+}
+.reset-button{
+  width: 40%;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset-button a{
+  font-size: 1.2vh;
+  color: #FFF;
+  display: block;
+}
+
+.detailed-search-form-btn .search-button{
+  width: 40%;
+  border-radius: 5px;
+  padding: 0 10px ;
+  font-size: 1.2vh;
+  background-color:#3ccace;
+  color: #FFF;
 }
 
 .search-item-contents {
@@ -74,7 +116,6 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
 }
 
 .item-lists>.list {

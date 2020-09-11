@@ -2,11 +2,11 @@
 <div class="main">
 <div class="search-wrapper">
   <div class="search-console">
-    <div class="search-form-area">
       <%= search_form_for @q, remote: true ,url:search_items_path do |f| %>
-        <div class="detailed-search-form">
+        <div class="detailed-sort-form">
           <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
         </div>
+    <div class="search-form-area">
         <div class="detailed-search-form">
           <%= fa_icon 'binoculars' %>
           <%= f.label :name ,"キーワード" %><br>
@@ -20,24 +20,44 @@
         <div class="detailed-search-form">
           <%= fa_icon 'star-o' %>
           <%= f.label :condition_id, "商品の状態" %><br>
-          <%= f.collection_select :condition_id_eq, @condition, :id, :name, include_blank: '指定なし' %>
+          <div class="search-form-check_box">
+            <%= f.collection_check_boxes(:condition_id_eq_any,@condition, :id, :name)  do |b|%>
+              <%= b.label { b.check_box + b.text } %>
+            <% end %>
+          </div>
         </div>
         <div class="detailed-search-form">
           <%= fa_icon 'truck' %>
           <%= f.label :shipping_burden_id, "配送料の負担" %><br>
-          <%= f.collection_select :shipping_burden_id_eq, @shipping_burden, :id, :name, include_blank: '指定なし' %>
+          <div class="search-form-check_box">
+            <%= f.collection_check_boxes(:shipping_burden_id_eq_any, @shipping_burden, :id, :name)  do |b|%>
+              <%= b.label { b.check_box + b.text } %>
+            <% end %>
+          </div>
         </div>
         <div class="detailed-search-form">
           <%= fa_icon 'credit-card' %>
           <%= f.label :price,"価格" %><br>
-          <%= f.number_field :price_gteq, class:"price-form" %>〜
-          <%= f.number_field :price_lt, class:"price-form" %>円
+          <%= f.number_field :price_gteq, class:"price-form", placeholder:" Min" %>~
+          <%= f.number_field :price_lt, class:"price-form",placeholder:" Max" %>円
+        </div>
+        <div class="detailed-search-form">
+          <%= fa_icon 'shopping-cart' %>
+          <%= f.label :order,"販売状況" %><br>
+            <div class="search-form-check_box">
+              <div class="search-form-check_box-sell"><%= f.check_box :order_id_null,{},true,false %>販売中</div>
+              <div class="search-form-check_box-sell"><%= f.check_box :order_id_not_null,{},true,false %>売り切れ</div>
+          </div>
         </div>
         <div class="detailed-search-form-btn">
+          <div class="reset-button">
+            <%= link_to "リセット", search_items_path(:q=>{"name_cont"=>""})%>
+          </div>
           <%= button_tag type: 'submit', class: "search-button"  do %>
-            検索<%= fa_icon 'search' %>
+            検索 <%= fa_icon 'search' %>
           <% end %>
         </div>
+
       <% end %>
     </div>
   </div>
