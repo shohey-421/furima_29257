@@ -1,9 +1,8 @@
 .category-wrapper {
-  background-color: #FFF;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 5vh 0;
 }
 
 .category-wrapper>.title {
@@ -25,11 +24,15 @@
   transform: translateX(-50%);
 }
 
+.category-lists a{
+  color: #444444;
+}
+
 .category-lists li{
-  font-size: 2vh;
+  font-size: 1.5vh;
   text-align: left;
-  list-style-type: disc;
-  text-decoration: none;
+  list-style: none;
+  padding-top:0.5em ;
 }
 
 .caregory-item-wrapper{
