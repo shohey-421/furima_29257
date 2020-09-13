@@ -45,9 +45,9 @@
           <%= fa_icon 'shopping-cart' %>
           <%= f.label :order,"販売状況" %><br>
             <div class="search-form-check_box">
-              <div class="search-form-check_box-sell"><%= f.check_box :order_id_null,{},true,false %>販売中</div>
-              <div class="search-form-check_box-sell"><%= f.check_box :order_id_not_null,{},true,false %>売り切れ</div>
-          </div>
+              <label for="q_order_id_null" ><%= f.check_box :order_id_null,{},true,false %>販売中</label>
+              <label for="q_order_id_not_null"><%= f.check_box :order_id_not_null,{},true,false %>売り切れ</label>
+            </div>
         </div>
         <div class="detailed-search-form-btn">
           <div class="reset-button">

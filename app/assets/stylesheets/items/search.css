@@ -34,9 +34,22 @@
   padding-left: 0.5em;
 }
 
+.search-form-check_box{
+  margin-top: 10px;
+}
+
 .search-form-check_box>label{
-  display: block;
-  margin-left: 1em;
+  display: inline-flex;
+  width: 48%;
+  height: 3em;
+  font-size: 1.1vh;
+  position: relative;
+  align-items: center;
+}
+
+.search-form-check_box>label>input{
+margin-right: 5px;
+
 }
 
 .detailed-search-form .price-form{
