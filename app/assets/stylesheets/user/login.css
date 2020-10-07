@@ -18,3 +18,8 @@
   text-align: center;
   color: red;
 }
+
+.test-account {
+  width: fit-content;
+  margin: 0 auto;
+}
