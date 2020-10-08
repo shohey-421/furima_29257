@@ -11,7 +11,6 @@ require("jquery")
 require("../profit_calc")
 require("../card")
 require("../category_menu.js")
-require("../search_window.js")
 require('./preview')
 require('../slider.js')
 

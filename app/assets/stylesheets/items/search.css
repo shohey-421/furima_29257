@@ -42,7 +42,7 @@
   display: inline-flex;
   width: 48%;
   height: 3em;
-  font-size: 1.1vh;
+  font-size: 0.9em;
   position: relative;
   align-items: center;
 }
@@ -83,7 +83,6 @@ margin-right: 5px;
 }
 
 .reset-button a{
-  font-size: 1.2vh;
   color: #FFF;
   display: block;
 }
@@ -92,7 +91,6 @@ margin-right: 5px;
   width: 40%;
   border-radius: 5px;
   padding: 0 10px ;
-  font-size: 1.2vh;
   background-color:#3ccace;
   color: #FFF;
 }
@@ -107,7 +105,7 @@ margin-right: 5px;
 }
 
 .search-item-contents>.title {
-  font-size: 3vh;
+  font-size: 2.5em;
   line-height: 1.4;
   font-weight: bold;
   position: relative;
@@ -158,11 +156,10 @@ margin-right: 5px;
 }
 
 .item-name {
-  font-size: 1.5vh;
+  font-size: 1.2em;
 }
 
 .item-price {
-  font-size: 1vh;
   display: flex;
   justify-content: space-between;
 }
@@ -189,11 +186,11 @@ margin-right: 5px;
 }
 
 .star-icon {
-  height: 1.5vh;
-  width: 1.5vh;
+  height: 1.1em;
+  width: 1.1em;
   margin-right: 0.5vw;
 }
 
 .star-count {
-  font-size: 1.5vh;
+  font-size: 1.1em;
 }

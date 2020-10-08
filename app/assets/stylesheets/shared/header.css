@@ -24,7 +24,6 @@
 
 .search-form {
   width: 65vw;
-  height: 5vh;
   display: flex;
   margin-bottom: 10px;
   border: 1px solid lightgray;
@@ -39,14 +38,12 @@
 }
 
 .search-button {
-  /* width: 5vh;
-  height: 3.5vh; */
   border: 0;
   cursor: pointer;
   background-color: #FFF;
-  padding-right: 5px;
+  padding-right: 0.5em;
   color: #3ccace;
-  font-size: 20px;
+  font-size: 1.5em;
 }
 
 .search-icon {
@@ -54,7 +51,6 @@
 }
 
 .nav {
-  font-size: 18px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -119,10 +115,11 @@
 }
 
 .detailed-search-form-title{
-  font-size: 30px;
+  font-size: 1.7em;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+  color: #333333;
 }
 
 .detailed-search-form{

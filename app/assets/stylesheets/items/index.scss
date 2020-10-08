@@ -23,11 +23,11 @@ a {
 }
 
 .service-title {
-  font-size: 8vh;
+  font-size: 4em;
 }
 
 .service-explain {
-  font-size: 2.5vh;
+  font-size: 2em;
   line-height: 40px;
 }
 
@@ -54,7 +54,7 @@ a {
 
 .select-reason-contents>.title {
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 2.2em;
   font-weight: bold;
   margin-bottom: 5vh;
   position: relative;
@@ -138,12 +138,12 @@ a {
 }
 
 .ad-title {
-  font-size: 5vh;
+  font-size: 2em;
   margin-bottom: 2vh;
 }
 
 .ad-explain {
-  font-size: 2.5vh;
+  font-size: 2em;
   line-height: 30px;
 }
 
@@ -170,7 +170,7 @@ a {
 
 .feature-contents>.title {
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 2.2em;
   font-weight: bold;
   margin-bottom: 5vh;
   position: relative;
@@ -224,7 +224,7 @@ a {
 }
 
 .item-contents>.title {
-  font-size: 4vh;
+  font-size: 2.2em;
   line-height: 1.4;
   font-weight: bold;
   position: relative;
@@ -243,7 +243,7 @@ a {
 }
 
 .item-contents>.subtitle {
-  font-size: 3vh;
+  font-size: 1.8em;
   margin: 1vh 0;
   text-decoration: none;
   color: #3ccace;
@@ -302,11 +302,10 @@ a {
 }
 
 .top-item-lists  .item-name {
-  font-size: 2.5vh;
+  font-size: 1.5em;
 }
 
 .top-item-lists .item-price {
-  font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
 }
@@ -322,10 +321,6 @@ a {
   height: 2vh;
   width: 2vh;
   margin-right: 0.5vw;
-}
-
-.top-item-lists .star-count {
-  font-size: 2vh;
 }
 
 /* //商品一覧 */
